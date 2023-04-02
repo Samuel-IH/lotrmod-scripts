@@ -22,9 +22,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
       - name: Zipadooda!
         uses: thedoctor0/zip-release@0.7.1
         with:
           type: 'zip'
           filename: 'release.zip'
           exclusions: '*.git *.md'
+      
+      - name: Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: "release.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
