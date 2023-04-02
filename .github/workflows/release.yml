@@ -32,7 +32,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'release.zip'
-          exclusions: '*.git *.md'
+          exclusions: '*.git *.md *.py'
       
       - name: Release
         uses: ncipollo/release-action@v1
